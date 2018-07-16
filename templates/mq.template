@@ -1,0 +1,18 @@
+heat_template_version: 2015-04-30
+
+description: Simple template to deploy a single compute instance
+
+parameters:
+  queue_name:
+    type: string
+    label: Queue Name
+    description: Name of the message queue
+
+resources:
+  my_queue:
+    type: OS::Zaqar::Queue
+    properties:
+      name: {get_param: queue_name}
+outputs:
+  queue:
+    value: {get_resource: my_queue}

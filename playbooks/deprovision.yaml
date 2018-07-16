@@ -1,0 +1,8 @@
+- name: openstack-zaqar-apb provision
+  hosts: localhost
+  gather_facts: false
+  connection: local
+  roles:
+  - openstack-zaqar-apb
+  vars:
+    state: absent

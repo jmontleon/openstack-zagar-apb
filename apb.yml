@@ -1,0 +1,49 @@
+---
+
+version: 1.0
+name: openstack-zaqar-apb
+description:  Openstack Zaqar apb implementation
+bindable: false
+async: optional
+tags:
+  - queue
+metadata:
+  documentationUrl: https://wiki.openstack.org/wiki/Zaqar 
+  longDescription: An apb that deploys an openstack zaqar queue
+  displayName: Openstack Zaqar (APB)
+  console.openshift.io/iconClass: icon-openstack
+  providerDisplayName: "Red Hat, Inc."
+plans:
+  - name: default
+    description: A single Zaqar message queue
+    free: true
+    metadata:
+      displayName: Default
+      longDescription: This plan provides a single Openstack Zaqar message queue
+      cost: $0.00
+    parameters:
+      - name: queue_name
+        type: string
+        title: Queue Name
+        required: true
+      - name: user
+        title: User
+        type: string
+        required: true
+        display_group: "Openstack Authentication"
+      - name: pass
+        type: string
+        title: Password
+        required: true
+        display_type: password
+        display_group: "Openstack Authentication"
+      - name: project
+        title: Project
+        type: string
+        required: true
+        display_group: "Openstack Authentication"
+      - name: url
+        title: Identity URL
+        type: string
+        required: true
+        display_group: "Openstack Authentication"
